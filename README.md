@@ -82,8 +82,20 @@ The ReLU function is defined as:
   - Helps mitigate the vanishing gradient problem by not saturating for large positive values.
 - **Disadvantages**:
   - Can cause dying ReLUs problem where neurons can get stuck during training if they enter a regime where they always output zero.
+## 4. Leaky ReLU Activation Function
 
-## 4. Softmax Activation Function
+The Leaky ReLU function is a variation of ReLU that allows a small, non-zero gradient when the input is negative. It’s defined as:
+
+<p align="center"><img src="https://latex.codecogs.com/svg.latex?\text{LeakyReLU}(x)=\begin{cases}x&\text{if }x\geq0\\\alpha x&\text{if }x<0\end{cases}"></p>
+
+**Properties:**
+- **Range**: (-∞, ∞)
+- **Advantages**:
+  - Helps mitigate the dying ReLU problem by allowing a small gradient when the input is negative.
+- **Disadvantages**:
+  - The slope for negative inputs needs to be manually set and is a hyperparameter to tune.
+
+## 5. Softmax Activation Function
 
 The softmax function is typically used in the output layer of a neural network for classification problems. It converts logits into probabilities. It’s defined as:
 
