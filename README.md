@@ -17,6 +17,47 @@ Random Forest Classifier is an ensemble learning method used for classification 
 ## Decision Tree
 Decision Tree is a supervised learning algorithm used for both classification and regression tasks. It works by recursively splitting the dataset into subsets based on the value of an input feature, creating a tree-like model of decisions. Each internal node represents a test on an attribute, each branch represents the outcome of the test, and each leaf node represents a class label (in classification) or a continuous value (in regression).
 
+
+## Pruning
+
+**Definition:** Pruning is a technique used in decision trees to reduce the size of the tree by removing sections of the tree that provide little predictive power.
+
+**Explanation:** Decision trees can grow to be very large and complex, especially when they have a deep hierarchy of nodes. Pruning helps to avoid overfitting by removing parts of the tree that are redundant or do not significantly improve the accuracy of predictions on the test data. There are two main types of pruning:
+- **Pre-pruning**: Stops the tree construction early, before it reaches its maximum depth.
+- **Post-pruning**: Allows the tree to grow fully and then prunes back the branches.
+
+---
+
+## Gini Index
+
+**Definition:** The Gini index measures the impurity of a set of examples.
+
+**Explanation:** In the context of decision trees, the Gini index is used to decide the optimal split at each node. It calculates the impurity of the data at a particular node. A lower Gini index indicates that a node contains predominantly samples from a single class, while a higher index means that the samples are distributed across different classes. The formula for Gini index at a node \( t \) is:
+<p align="center"><img src="https://latex.codecogs.com/svg.latex?\text{Gini}(t)=1-\sum_{i=1}^{c}(p_i)^2"></p>
+where \( c \) is the number of classes and \( p_i \) is the probability of class \( i \) at node \( t \).
+
+---
+
+## Entropy
+
+**Definition:** Entropy measures the impurity or uncertainty of a set of examples.
+
+**Explanation:** In decision trees, entropy is another metric used for determining the best split. It quantifies the amount of uncertainty in the data set. A lower entropy indicates that a node contains predominantly samples from a single class, while a higher entropy indicates that the samples are evenly distributed across different classes. The formula for entropy at a node \( t \) is:
+<p align="center"><img src="https://latex.codecogs.com/svg.latex?\text{Entropy}(t)=-\sum_{i=1}^{c}p_i\log_2(p_i)"></p>
+where \( p_i \) is the probability of class \( i \) at node \( t \).
+
+---
+
+## Information Gain
+
+**Definition:** Information gain measures the effectiveness of a particular attribute in classifying the training data.
+
+**Explanation:** Information gain is used to decide which attribute to split on at each step in building the decision tree. It quantifies the reduction in entropy or Gini index achieved by splitting the data based on a particular attribute. The attribute with the highest information gain is chosen as the splitting attribute at each node. The formula for information gain based on entropy is:
+<p align="center"><img src="https://latex.codecogs.com/svg.latex?\text{Gain}(S,A)=\text{Entropy}(S)-\sum_{v\in\text{Values}(A)}\frac{|S_v|}{|S|}\text{Entropy}(S_v)"></p>
+where \( S \) is the dataset, \( A \) is an attribute, \( \text{Values}(A) \) are the possible values of attribute \( A \), \( S_v \) is the subset of \( S \) for which attribute \( A \) has value \( v \).
+
+---
+
 ## Support Vector Machine (SVM)
 Support Vector Machine (SVM) is a supervised learning algorithm used for classification and regression tasks. It works by finding the hyperplane that best separates the classes in the feature space. SVM aims to maximize the margin between the closest points of the classes (support vectors), making it effective for high-dimensional spaces and when the number of dimensions exceeds the number of samples.
 
