@@ -37,7 +37,8 @@ Key concepts in neural networks include:
 - Training: The process of adjusting the weights and biases of the network using a dataset, typically through a method called backpropagation, which uses gradient descent to minimize the error in the network's predictions.
 Neural networks are used in a wide range of applications, from image and speech recognition to natural language processing and even playing games, due to their ability to learn from and adapt to complex data patterns.
 
-## Actuvation Functions:
+# Gradient descent
+Gradient descent is an optimization algorithm used to minimize the loss function in machine learning models. It iteratively adjusts the model parameters in the direction of the steepest descent of the loss function.
 
 # Activation Functions
 
