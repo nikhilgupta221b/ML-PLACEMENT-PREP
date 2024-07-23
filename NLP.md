@@ -1,3 +1,33 @@
+# Tokenizing
+
+Definition: Tokenizing is the process of splitting text into individual units called tokens, which can be words, subwords, or characters.
+
+Example:
+
+Input: "The quick brown fox jumps over the lazy dog."
+
+Tokens: ["The", "quick", "brown", "fox", "jumps", "over", "the", "lazy", "dog"]
+
+# Stemming
+
+Definition: Stemming is the process of reducing words to their base or root form by stripping suffixes and prefixes. It often results in non-standard words.
+
+Example:
+
+Input: ["running", "ran", "runner"]
+
+Stemmed: ["run", "ran", "runner"]
+
+# Lemmatization
+
+Definition: Lemmatization is the process of reducing words to their base or dictionary form (lemma) by considering the context and morphological analysis.
+
+Example:
+
+Input: ["running", "ran", "runner"]
+
+Lemmatized: ["run", "run", "runner"]
+
 # Word Embeddings in NLP
 
 - Word Embeddings are numeric representations of words in a lower-dimensional space, capturing semantic and syntactic information.
@@ -89,23 +119,39 @@ documents = [
 ]
 
 Document 1:
+
 dog: 0.3404110310756642
+
 lazy: 0.3404110310756642
+
 over: 0.3404110310756642
+
 jumps: 0.3404110310756642
+
 fox: 0.3404110310756642
+
 brown: 0.3404110310756642
+
 quick: 0.3404110310756642
+
 the: 0.43455990318254417
 
 Document 2:
+
 step: 0.3535533905932738
+
 single: 0.3535533905932738
+
 with: 0.3535533905932738
+
 begins: 0.3535533905932738
+
 miles: 0.3535533905932738
+
 thousand: 0.3535533905932738
+
 of: 0.3535533905932738
+
 journey: 0.3535533905932738
 
 TF-IDF is a widely used technique in information retrieval and text mining, but its limitations should be considered, especially when dealing with tasks that require a deeper understanding of language semantics. For example:
@@ -113,6 +159,23 @@ TF-IDF is a widely used technique in information retrieval and text mining, but 
 TF-IDF treats words as independent entities and doesn’t consider semantic relationships between them. This limitation hinders its ability to capture contextual information and word meanings.
 
 Sensitivity to Document Length: Longer documents tend to have higher overall term frequencies, potentially biasing TF-IDF towards longer documents.
+
+
+## Neural Approach
+
+**Word2Vec**
+
+The underlying idea is that words with similar meanings should have similar vector representations. In Word2Vec every word is assigned a vector. We start with either a random vector or one-hot vector.
+
+There are two neural embedding methods for Word2Vec, Continuous Bag of Words (CBOW) and Skip-gram.
+
+**1.Continuous Bag of Words(CBOW)**
+
+Continuous Bag of Words (CBOW) is a type of neural network architecture used in the Word2Vec model. The primary objective of CBOW is to predict a target word based on its context, which consists of the surrounding words in a given window. Given a sequence of words in a context window, the model is trained to predict the target word at the center of the window.
+
+**2.Skip-Gram**
+
+The Skip-Gram model learns distributed representations of words in a continuous vector space. The main objective of Skip-Gram is to predict context words (words surrounding a target word) given a target word. This is the opposite of the Continuous Bag of Words (CBOW) model, where the objective is to predict the target word based on its context. It is shown that this method produces more meaningful embeddings.
 
 # RNN vs LSTM vs GRU
 
