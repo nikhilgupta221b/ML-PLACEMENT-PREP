@@ -80,6 +80,75 @@ Neural networks are used in a wide range of applications, from image and speech 
 
 # Gradient descent
 Gradient descent is an optimization algorithm used to minimize the loss function in machine learning models. It iteratively adjusts the model parameters in the direction of the steepest descent of the loss function.
+# Difference Between Gradient Descent and Stochastic Gradient Descent
+
+Gradient Descent (GD) and Stochastic Gradient Descent (SGD) are both optimization algorithms used to minimize the cost function in machine learning models. They share the same goal but differ in how they update the model parameters.
+
+## Gradient Descent (GD)
+
+**Batch Gradient Descent (BGD):**
+
+1. **Overview:**
+   - Batch Gradient Descent computes the gradient of the cost function with respect to the parameters for the entire training dataset.
+   - It updates the parameters by taking a step in the direction of the negative gradient.
+   
+2. **Steps:**
+   1. Compute the gradient of the cost function for the entire dataset.
+   2. Update the parameters using the computed gradient.
+   3. Repeat until convergence.
+
+3. **Advantages:**
+   - Converges to the global minimum for convex functions.
+   - More stable and accurate in each iteration.
+
+4. **Disadvantages:**
+   - Computationally expensive for large datasets.
+   - Requires storing the entire dataset in memory.
+   - Slow convergence, especially with large datasets.
+
+## Stochastic Gradient Descent (SGD)
+
+**Stochastic Gradient Descent (SGD):**
+
+1. **Overview:**
+   - Stochastic Gradient Descent computes the gradient of the cost function for a single training example at each iteration.
+   - It updates the parameters more frequently, with higher variance in the updates.
+
+2. **Steps:**
+   1. Randomly shuffle the training dataset.
+   2. For each training example:
+      - Compute the gradient of the cost function for that example.
+      - Update the parameters using the computed gradient.
+   3. Repeat until convergence.
+
+3. **Advantages:**
+   - Faster convergence for large datasets.
+   - Can handle large datasets that do not fit into memory.
+   - Introduces noise in the parameter updates, which can help escape local minima.
+
+4. **Disadvantages:**
+   - High variance in the updates can lead to a less stable convergence.
+   - May not converge to the exact global minimum but often good enough for practical purposes.
+
+## Comparison
+
+1. **Computation:**
+   - **GD:** Uses the entire dataset for each update, making it computationally expensive.
+   - **SGD:** Uses one training example per update, making it faster per update but noisier.
+
+2. **Memory Usage:**
+   - **GD:** Requires the entire dataset to be loaded into memory.
+   - **SGD:** Can work with mini-batches or single examples, requiring less memory.
+
+3. **Convergence:**
+   - **GD:** Provides stable convergence but can be slow.
+   - **SGD:** Faster convergence but with more variance in the updates.
+
+4. **Suitability:**
+   - **GD:** Better suited for smaller datasets.
+   - **SGD:** Better suited for large datasets and online learning.
+
+In summary, the main difference lies in how much data is used to compute the gradient at each step: GD uses the whole dataset, whereas SGD uses a single example or a small batch of examples. This leads to trade-offs in computation time, memory usage, and convergence stability.
 
 # Activation Functions
 
@@ -140,9 +209,7 @@ The Leaky ReLU function is a variation of ReLU that allows a small, non-zero gra
 ## 5. Softmax Activation Function
 
 The softmax function is typically used in the output layer of a neural network for classification problems. It converts logits into probabilities. It’s defined as:
-
 <p align="center"><img src="https://latex.codecogs.com/svg.latex?\text{softmax}(x_i)=\frac{e^{x_i}}{\sum_{j}e^{x_j}}"></p>
-
 **Properties:**
 - **Range**: (0, 1) for each output, and the outputs sum to 1.
 - **Advantages**:
