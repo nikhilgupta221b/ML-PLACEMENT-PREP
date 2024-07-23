@@ -31,6 +31,9 @@ in: [0, 0, 0, 0, 0, 1, 0, 0, 0]
 
 - One hot size is bigger, so embeddings were invented for dimensionality reduction
 
+One-hot encoding results in high-dimensional vectors, making it computationally expensive and memory-intensive, especially with large vocabularies.
+
+It does not capture semantic relationships between words; each word is treated as an isolated entity without considering its meaning or context.
 
 **Bag of Word (Bow)**
 
@@ -55,6 +58,11 @@ Vocabulary (Feature Names):
 
 ['and' 'document' 'first' 'is' 'one' 'second' 'the' 'third' 'this']
 
+disadvantages highlight its limitations in capturing certain aspects of language structure and semantics:
+
+BoW ignores the order of words in the document, leading to a loss of sequential information and context making it less effective for tasks where word order is crucial, such as in natural language understanding.
+BoW representations are often sparse, with many elements being zero resulting in increased memory requirements and computational inefficiency, especially when dealing with large datasets.
+
 **Term frequency-inverse document frequency (TF-IDF)**
 
 Term Frequency-Inverse Document Frequency, commonly known as TF-IDF, is a numerical statistic that reflects the importance of a word in a document relative to a collection of documents (corpus). It is widely used in natural language processing and information retrieval to evaluate the significance of a term within a specific document in a larger corpus. TF-IDF consists of two components:
@@ -74,6 +82,37 @@ Inverse Document Frequency measures the importance of a term across a collection
 The TF-IDF score for a term t in a document d is then given by multiplying the TF and IDF values:
 
 <img src="https://quicklatex.com/cache3/dd/ql_37a35895ccca113a353a775a79ddd8dd_l3.svg" alt="Formula 3">
+
+documents = [
+    "The quick brown fox jumps over the lazy dog.",
+    "A journey of a thousand miles begins with a single step.",
+]
+
+Document 1:
+dog: 0.3404110310756642
+lazy: 0.3404110310756642
+over: 0.3404110310756642
+jumps: 0.3404110310756642
+fox: 0.3404110310756642
+brown: 0.3404110310756642
+quick: 0.3404110310756642
+the: 0.43455990318254417
+
+Document 2:
+step: 0.3535533905932738
+single: 0.3535533905932738
+with: 0.3535533905932738
+begins: 0.3535533905932738
+miles: 0.3535533905932738
+thousand: 0.3535533905932738
+of: 0.3535533905932738
+journey: 0.3535533905932738
+
+TF-IDF is a widely used technique in information retrieval and text mining, but its limitations should be considered, especially when dealing with tasks that require a deeper understanding of language semantics. For example:
+
+TF-IDF treats words as independent entities and doesn’t consider semantic relationships between them. This limitation hinders its ability to capture contextual information and word meanings.
+
+Sensitivity to Document Length: Longer documents tend to have higher overall term frequencies, potentially biasing TF-IDF towards longer documents.
 
 # RNN vs LSTM vs GRU
 
