@@ -177,6 +177,8 @@ Continuous Bag of Words (CBOW) is a type of neural network architecture used in 
 
 The Skip-Gram model learns distributed representations of words in a continuous vector space. The main objective of Skip-Gram is to predict context words (words surrounding a target word) given a target word. This is the opposite of the Continuous Bag of Words (CBOW) model, where the objective is to predict the target word based on its context. It is shown that this method produces more meaningful embeddings.
 
+- The similarity between two vectors in an inner product space is measured by cosine similarity.
+
 # RNN vs LSTM vs GRU
 
 ## Recurrent Neural Networks (RNN)
