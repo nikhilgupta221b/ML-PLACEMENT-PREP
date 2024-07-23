@@ -1,9 +1,9 @@
 # ML-SHORTS
 ## Artificial Intelligence (AI)
-Artificial Intelligence (AI) refers to the simulation of human intelligence in machines that are programmed to think and learn like humans. AI systems can perform tasks that typically require human intelligence, such as visual perception, speech recognition, decision-making, and language translation.
+Artificial Intelligence (AI) is the simulation of human intelligence in machines that are programmed to think and learn like humans. AI systems can perform tasks that typically require human intelligence, such as visual perception, speech recognition, decision-making, and language translation.
 
 ## Machine Learning (ML)
-Machine Learning (ML) is a subset of AI that involves the use of algorithms and statistical models to enable computers to improve their performance on a task through experience. ML systems learn from data and make predictions or decisions without being explicitly programmed to perform the task.
+Machine Learning (ML) is a subset of AI that involves using algorithms and statistical models to enable computers to improve their performance on a task through experience. ML systems learn from data and make predictions or decisions without being explicitly programmed to perform the task.
 
 ## Linear Regression
 Linear Regression is a statistical method for modeling the relationship between a dependent variable and one or more independent variables. It assumes a linear relationship between the input variables (features) and the output variable, and it tries to find the best-fitting straight line (regression line) through the data points.
