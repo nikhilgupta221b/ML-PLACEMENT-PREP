@@ -294,6 +294,5 @@ The decoder will convert the hidden vector into the output sequence.
 This is the final hidden state produced from the encoder part of the model.
 This vector aims to encapsulate the information for all input elements in order to help the decoder make accurate predictions.
 It acts as the initial hidden state of the decoder part of the model.
-
-##Decoder
+## Decoder
 The Decoder generates the output sequence by predicting the next output Yt given the hidden state ht.
