@@ -278,6 +278,13 @@ The reset gate determines how much of the previous hidden state should be forgot
 - The Transformer is a neural network architecture 
 - The key innovation of the Transformer is the use of self-attention mechanisms to process sequences of data, which allows for more parallelization compared to traditional RNNs and LSTMs.
 
+Steps:
+
+- Input Embeddings: Convert each word in the input sequence into a dense vector.
+- Query, Key, and Value Vectors: For each word, compute three vectors: Query (Q), Key (K), and Value (V).
+- Attention Scores: Compute the dot product of the Query vector with all Key vectors, then apply a softmax function to obtain the attention weights.
+- Weighted Sum: Multiply the attention weights by the corresponding Value vectors and sum them up to get the final attention output.
+
 ## Encoders-Decoders
 
 There are three main blocks in the encoder-decoder model,
@@ -296,3 +303,36 @@ This vector aims to encapsulate the information for all input elements in order 
 It acts as the initial hidden state of the decoder part of the model.
 ## Decoder
 The Decoder generates the output sequence by predicting the next output Yt given the hidden state ht.
+
+
+# Masking in BERT
+BERT (Bidirectional Encoder Representations from Transformers) is designed to pre-train deep bidirectional representations by jointly conditioning on both left and right context in all layers.
+## Masking Mechanism:
+- BERT uses a technique called Masked Language Modeling (MLM) for pre-training.
+- Random Masking: Randomly selects a subset of tokens in the input sequence to be masked (replaced with a special [MASK] token).
+- Token Replacement:
+80% of the time, the selected token is replaced with [MASK].
+  
+10% of the time, the selected token is replaced with a random token.
+
+10% of the time, the selected token remains unchanged.
+
+- Prediction Task: The model is trained to predict the original tokens that were masked, encouraging it to learn bidirectional context.
+- 
+Example:
+
+Input Sequence: "The quick brown fox jumps over the lazy dog."
+
+Masked Sequence: "The quick [MASK] fox jumps [MASK] the lazy dog."
+
+Prediction Task: The model predicts "brown" and "over" based on the context provided by the other tokens.
+
+# Benefits:
+Bidirectional Context: BERT's masking allows it to leverage both left and right context, unlike traditional left-to-right or right-to-left models.
+
+Rich Representations: By predicting masked tokens, BERT learns deep contextual representations of words.
+
+# Summary:
+Transformers: Use an encoder-decoder architecture with self-attention mechanisms to process and generate sequences.
+
+BERT: Utilizes masked language modeling to pre-train on bidirectional context, enabling rich understanding of language.
