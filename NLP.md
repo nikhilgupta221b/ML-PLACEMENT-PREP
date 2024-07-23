@@ -1,3 +1,80 @@
+# Word Embeddings in NLP
+
+- Word Embeddings are numeric representations of words in a lower-dimensional space, capturing semantic and syntactic information.
+Semantic Information
+Synonyms: Words like "happy" and "joyful" have similar embeddings due to their similar meanings.
+Analogies: "King" is to "queen" as "man" is to "woman" captures semantic relationships.
+Syntactic Information
+Part of Speech: "Run" (verb) and "jog" (verb) have similar embeddings because they share the same grammatical role.
+Word Order: Recognizing that "the cat sits" is correct, whereas "cat the sits" is not.
+
+## Approaches for Text Representation
+
+**One-Hot Encoding**
+
+One-hot encoding is a simple method for representing words in natural language processing (NLP). In this encoding scheme, each word in the vocabulary is represented as a unique vector, where the dimensionality of the vector is equal to the size of the vocabulary. The vector has all elements set to 0, except for the element corresponding to the index of the word in the vocabulary, which is set to 1.
+
+
+Vocabulary: 
+
+{'mat', 'the', 'bird', 'hat', 'on', 'in', 'cat', 'tree', 'dog'}
+
+Word to Index Mapping: 
+
+{'mat': 0, 'the': 1, 'bird': 2, 'hat': 3, 'on': 4, 'in': 5, 'cat': 6, 'tree': 7, 'dog': 8}
+
+One-Hot Encoded Matrix:
+
+cat: [0, 0, 0, 0, 0, 0, 1, 0, 0]
+
+in: [0, 0, 0, 0, 0, 1, 0, 0, 0]
+
+- One hot size is bigger, so embeddings were invented for dimensionality reduction
+
+
+**Bag of Word (Bow)**
+
+Bag-of-Words (BoW) is a text representation technique representing a document as an unordered set of words and their respective frequencies. It discards the word order and captures the frequency of each word in the document, creating a vector representation.
+
+documents = ["This is the first document.",
+              "This document is the second document.",
+              "And this is the third one.",
+              "Is this the first document?"]
+
+Bag-of-Words Matrix:
+
+[[0 1 1 1 0 0 1 0 1]
+
+ [0 2 0 1 0 1 1 0 1]
+ 
+ [1 0 0 1 1 0 1 1 1]
+ 
+ [0 1 1 1 0 0 1 0 1]]
+
+Vocabulary (Feature Names):
+
+['and' 'document' 'first' 'is' 'one' 'second' 'the' 'third' 'this']
+
+**Term frequency-inverse document frequency (TF-IDF)**
+
+Term Frequency-Inverse Document Frequency, commonly known as TF-IDF, is a numerical statistic that reflects the importance of a word in a document relative to a collection of documents (corpus). It is widely used in natural language processing and information retrieval to evaluate the significance of a term within a specific document in a larger corpus. TF-IDF consists of two components:
+
+Term Frequency (TF): 
+
+Term Frequency measures how often a term (word) appears in a document. It is calculated using the formula:
+
+<img src="https://quicklatex.com/cache3/73/ql_411df6fe05630def9df5f91c0bf9fb73_l3.svg" alt="Formula 1">       
+
+Inverse Document Frequency (IDF): 
+
+Inverse Document Frequency measures the importance of a term across a collection of documents. It is calculated using the formula:
+
+<img src="https://quicklatex.com/cache3/41/ql_4877a2e3d394875c97463a5d34c67d41_l3.svg" alt="Formula 2">
+
+The TF-IDF score for a term t in a document d is then given by multiplying the TF and IDF values:
+
+<img src="https://quicklatex.com/cache3/dd/ql_37a35895ccca113a353a775a79ddd8dd_l3.svg" alt="Formula 3">
+
 # RNN vs LSTM vs GRU
 
 ## Recurrent Neural Networks (RNN)
