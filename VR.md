@@ -93,6 +93,10 @@ Non-Maximal Suppression (NMS) is a post-processing technique used in object dete
 - **Procedure:** Given a set of bounding boxes with associated confidence scores, NMS removes redundant boxes by keeping only the one with the highest score while suppressing others that overlap significantly.
 - **Key Feature:** Helps to refine detection results by eliminating duplicate detections and retaining the most accurate bounding box for each object.
 
+A low NMS threshold means that NMS will be stricter about the amount of overlap allowed between bounding boxes before suppressing one of them
+
+A high NMS threshold means that NMS will tolerate more overlap between bounding boxes before considering one of them redundant.
+
 ## DETR (DEtection TRansformer)
 
 **Definition:**
