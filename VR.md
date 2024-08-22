@@ -51,3 +51,65 @@
 
 - **Encoder**: Converts input data into rich, contextually informed embeddings using self-attention and feed-forward layers.
 - **Decoder**: Uses these embeddings, along with target sequence information, to generate predictions, employing masked self-attention, cross-attention, and feed-forward layers.
+
+# Definitions and Working of Various Vision and Transformer Models
+
+## DeiT (Data-efficient Image Transformer)
+
+**Definition:**
+DeiT stands for Data-efficient Image Transformer. It is a vision transformer model designed to be more efficient with data and computational resources.
+
+**Working:**
+- **Architecture:** DeiT uses the Transformer architecture, originally designed for NLP tasks, for image classification.
+- **Efficiency:** It introduces a training strategy that uses data augmentation and knowledge distillation to achieve high performance with limited data and computational resources.
+- **Key Feature:** Employs a teacher-student framework where a large teacher model guides a smaller student model, enabling effective learning with fewer data.
+
+## DINO (Self-Distillation with No Labels)
+
+**Definition:**
+DINO (Self-Distillation with No Labels) is a self-supervised learning method for visual representations.
+
+**Working:**
+- **Architecture:** DINO uses a vision transformer model and operates in a self-supervised manner without relying on labeled data.
+- **Self-Distillation:** It applies self-distillation where the model learns representations by comparing different augmented views of the same image, encouraging consistency in the learned features.
+- **Key Feature:** Leverages data augmentation and a momentum encoder to learn robust features without requiring labeled data.
+
+## Shifted Window Vision Transformer
+
+**Definition:**
+Shifted Window Vision Transformer is a variant of the Vision Transformer that addresses the limitations of the standard window-based attention mechanism.
+
+**Working:**
+- **Architecture:** Utilizes a window-based self-attention mechanism, where attention is computed within local windows.
+- **Shifted Windows:** Implements a shifted window approach where windows are shifted between layers to capture cross-window interactions and global context.
+- **Key Feature:** Enhances the ability to model global dependencies and improve performance on vision tasks.
+
+## Non-Maximal Suppression (NMS)
+
+**Definition:**
+Non-Maximal Suppression (NMS) is a post-processing technique used in object detection to filter overlapping bounding boxes.
+
+**Working:**
+- **Procedure:** Given a set of bounding boxes with associated confidence scores, NMS removes redundant boxes by keeping only the one with the highest score while suppressing others that overlap significantly.
+- **Key Feature:** Helps to refine detection results by eliminating duplicate detections and retaining the most accurate bounding box for each object.
+
+## DETR (DEtection TRansformer)
+
+**Definition:**
+DETR (Detection Transformer) is a Transformer-based model designed for object detection tasks.
+
+**Working:**
+- **Architecture:** Combines a vision backbone with a Transformer architecture to directly predict bounding boxes and class labels.
+- **End-to-End Learning:** DETR performs object detection in an end-to-end manner, eliminating the need for region proposal networks (RPNs) and anchor boxes.
+- **Key Feature:** Utilizes a set-based global loss to ensure a one-to-one mapping between predicted and ground-truth objects, improving detection accuracy.
+
+## ViLBERT (Vision-and-Language BERT)
+
+**Definition:**
+ViLBERT (Vision-and-Language BERT) is a model that extends BERT (Bidirectional Encoder Representations from Transformers) to handle both visual and textual information.
+
+
+**Working:**
+- **Architecture:** Uses separate streams for processing visual and textual inputs, which are later fused using cross-attention mechanisms.
+- **Multimodal Learning:** Trains on tasks that require understanding both visual and textual information, such as visual question answering.
+- **Key Feature:** Allows joint representation learning from images and text, enabling the model to understand and generate responses based on multimodal inputs.
