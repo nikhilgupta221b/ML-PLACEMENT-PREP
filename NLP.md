@@ -203,6 +203,10 @@ Recurrent Neural Network(RNN) is a type of Neural Network where the output from 
 
 **Backpropagation Through Time (BPTT)** is an extension of the backpropagation algorithm used to train Recurrent Neural Networks (RNNs). RNNs are designed to handle sequential data by maintaining a hidden state that captures information from previous time steps. BPTT is the process of computing gradients in RNNs, allowing the model to learn from sequences over time.
 
+<p style="text-align: center;">
+    <img src="https://latex.codecogs.com/png.latex?\frac{\partial%20L}{\partial%20\theta}=\sum_{t=1}^{T}\frac{\partial%20L_t}{\partial%20h_t}\cdot\frac{\partial%20h_t}{\partial%20\theta}+\sum_{t=1}^{T}\sum_{k=1}^{t-1}\frac{\partial%20L_t}{\partial%20h_t}\cdot\frac{\partial%20h_t}{\partial%20h_k}\cdot\frac{\partial%20h_k}{\partial%20\theta}" alt="BPTT Formula">
+  </p>
+
 ## How BPTT Works
 
 ### 1. Unrolling the RNN
