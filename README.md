@@ -166,6 +166,19 @@ The sigmoid function maps any input to a value between 0 and 1. It’s defined a
   - Can cause vanishing gradient problem as gradients get very small for large positive or negative inputs.
   - Outputs are not zero-centered, which can slow down convergence.
 
+
+Zero-centered outputs refer to a scenario where the outputs of a function, model, or system are distributed around a mean of zero. This concept is often used in the context of machine learning, signal processing, and data normalization.
+
+Why Zero-Centered Outputs Matter
+Improved Training Stability: In machine learning, particularly in neural networks, having inputs and outputs centered around zero can improve the stability and speed of training. It helps in avoiding issues where gradients can vanish or explode during backpropagation, making the learning process more efficient.
+
+Better Weight Updates: When outputs are zero-centered, weight updates during training (like in gradient descent) tend to be more balanced. This means that the weights are adjusted more symmetrically, which can lead to a faster convergence to the optimal solution.
+
+Symmetry in Activation Functions: Many activation functions (like the hyperbolic tangent 
+tanh
+⁡
+tanh or certain variations of ReLU) are symmetric around zero. Zero-centered inputs help maintain this symmetry, ensuring that the activations are also centered around zero, which is desirable for balanced and effective learning.
+
 ## 2. Tanh (Hyperbolic Tangent) Activation Function
 
 The tanh function maps any input to a value between -1 and 1. It’s defined as:
@@ -179,6 +192,8 @@ The tanh function maps any input to a value between -1 and 1. It’s defined as:
   - Less prone to the vanishing gradient problem compared to the sigmoid function.
 - **Disadvantages**:
   - Can still cause vanishing gradient problem, though less severe than sigmoid.
+
+The vanishing gradient problem is a phenomenon that occurs during the training of deep neural networks, where the gradients of the loss function with respect to the model's parameters become very small. This causes the weights in the earlier layers of the network to update very slowly, effectively making it difficult for the network to learn and improve during training.
 
 ## 3. ReLU (Rectified Linear Unit) Activation Function
 
@@ -205,6 +220,8 @@ The Leaky ReLU function is a variation of ReLU that allows a small, non-zero gra
   - Helps mitigate the dying ReLU problem by allowing a small gradient when the input is negative.
 - **Disadvantages**:
   - The slope for negative inputs needs to be manually set and is a hyperparameter to tune.
+
+The dying ReLU problem refers to a situation in neural networks where a significant number of neurons using the ReLU (Rectified Linear Unit) activation function become inactive, meaning they only output zero for any input. Once a neuron becomes inactive in this way, it effectively "dies" because it stops contributing to the learning process, and the network may lose the ability to learn from certain parts of the data.
 
 ## 5. Softmax Activation Function
 
