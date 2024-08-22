@@ -199,6 +199,54 @@ Recurrent Neural Network(RNN) is a type of Neural Network where the output from 
   - Simple sequence prediction.
   - Basic time series analysis.
 
+# Backpropagation Through Time (BPTT) in RNNs
+
+**Backpropagation Through Time (BPTT)** is an extension of the backpropagation algorithm used to train Recurrent Neural Networks (RNNs). RNNs are designed to handle sequential data by maintaining a hidden state that captures information from previous time steps. BPTT is the process of computing gradients in RNNs, allowing the model to learn from sequences over time.
+
+## How BPTT Works
+
+### 1. Unrolling the RNN
+
+- RNNs process sequences by iterating over time steps, where the hidden state at each time step \( t \) depends on the input at that step \( x_t \) and the hidden state from the previous step \( h_{t-1} \).
+- To apply BPTT, the RNN is "unrolled" over time, creating a computational graph that represents each time step as a separate layer in a deep feedforward network. This unrolling transforms the RNN into a multi-layer network where each layer corresponds to a time step in the sequence.
+
+  \[
+  h_t = f(h_{t-1}, x_t)
+  \]
+
+  Here, \( h_t \) is the hidden state at time step \( t \), \( x_t \) is the input at time \( t \), and \( f \) is the activation function.
+
+### 2. Forward Pass
+
+- During the forward pass, the RNN processes the input sequence one step at a time, updating the hidden state and computing the output at each step. The loss function (e.g., cross-entropy or mean squared error) is computed based on the output at each time step.
+
+### 3. Backward Pass (Backpropagation Through Time)
+
+- After the forward pass, BPTT is used to compute gradients of the loss function with respect to the model's parameters by backpropagating errors from the output layer through the unrolled RNN layers.
+- The key difference between standard backpropagation and BPTT is that in BPTT, the errors are propagated not just through the layers at a single time step but also backward through time, affecting earlier time steps.
+
+  \[
+  \frac{\partial L}{\partial \theta} = \sum_{t=1}^{T} \frac{\partial L_t}{\partial h_t} \cdot \frac{\partial h_t}{\partial \theta} + \sum_{t=1}^{T} \sum_{k=1}^{t-1} \frac{\partial L_t}{\partial h_t} \cdot \frac{\partial h_t}{\partial h_k} \cdot \frac{\partial h_k}{\partial \theta}
+  \]
+
+  In this equation:
+  - \( L \) is the loss function.
+  - \( \theta \) represents the model parameters.
+  - \( T \) is the length of the sequence.
+
+  Gradients are accumulated over all time steps, taking into account the dependencies between states at different times.
+
+## Challenges with BPTT
+
+### 1. Vanishing and Exploding Gradients
+
+- Just like in deep feedforward networks, RNNs are prone to the vanishing gradient problem, where gradients diminish as they are propagated back through time. This is particularly problematic for long sequences.
+- Conversely, gradients can also explode, causing instability during training.
+
+### 2. Computational Complexity
+
+- BPTT requires storing all the intermediate hidden states and computing gradients over a long sequence, which can be computationally expensive, especially for long sequences.
+
 ## Long Short-Term Memory (LSTM)
 The LSTM architectures involves the memory cell which is controlled by three gates: the input gate, the forget gate, and the output gate. These gates decide what information to add to, remove from, and output from the memory cell.
 
