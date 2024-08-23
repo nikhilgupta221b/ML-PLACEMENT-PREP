@@ -298,3 +298,63 @@ The softmax function is typically used in the output layer of a neural network f
   - Provides a probabilistic interpretation of the output, useful for multi-class classification.
 - **Disadvantages**:
   - Computation can be expensive for large output spaces due to the normalization step.
+
+## Bagging vs. Boosting
+
+### Bagging (Bootstrap Aggregating)
+
+**Definition**: Bagging is an ensemble learning technique that combines the predictions of multiple base models to improve overall accuracy and reduce variance. It works by training multiple models on different subsets of the data and then aggregating their predictions.
+
+**How It Works**:
+1. **Bootstrap Sampling**: Create multiple subsets of the training data by sampling with replacement.
+2. **Model Training**: Train a separate model on each subset.
+3. **Aggregation**: Combine predictions from all models. For regression, this typically means averaging the predictions; for classification, it might involve voting.
+
+**Advantages**:
+- Reduces variance and overfitting.
+- Useful when the base model is unstable (e.g., decision trees).
+
+**Disadvantages**:
+- Can be computationally expensive.
+- May not improve performance if base models are too similar.
+
+**Example**:
+- **Random Forest** is a popular bagging algorithm that uses decision trees as base models.
+
+### Boosting
+
+**Definition**: Boosting is an ensemble learning technique that builds models sequentially, each new model focusing on the errors made by the previous ones. The idea is to convert weak learners into a strong learner.
+
+**How It Works**:
+1. **Initial Model**: Train an initial model on the full dataset.
+2. **Error Correction**: Train subsequent models to correct the errors of the previous models, usually by weighting the errors.
+3. **Combination**: Combine the predictions of all models, often by weighted averaging.
+
+**Advantages**:
+- Reduces bias and variance.
+- Often leads to better performance on the training data.
+
+**Disadvantages**:
+- Can be sensitive to noisy data and outliers.
+- More prone to overfitting compared to bagging.
+
+**Example**:
+- **Gradient Boosting** and **AdaBoost** are well-known boosting algorithms.
+
+## Feature Engineering Techniques in Machine Learning
+
+Feature engineering involves creating new features or modifying existing ones to improve the performance of machine learning models. Here are some key techniques:
+
+### 1. **Feature Scaling**
+
+**Definition**: Adjusting the range of features to improve model performance and convergence speed.
+
+**Techniques**:
+- **Normalization**: Scales features to a range of [0, 1].
+- **Standardization**: Scales features to have a mean of 0 and a standard deviation of 1.
+
+**Example**:
+```python
+from sklearn.preprocessing import StandardScaler
+scaler = StandardScaler()
+X_scaled = scaler.fit_transform(X)
