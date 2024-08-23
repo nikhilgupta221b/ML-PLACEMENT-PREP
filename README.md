@@ -74,7 +74,7 @@ df = pd.DataFrame(data)
 correlation_matrix = df.corr()
 
 print(correlation_matrix)
-
+```
 
 ## Random Forest Classifier
 Random Forest Classifier is an ensemble learning method used for classification (and regression) tasks. It operates by constructing multiple decision trees during training and outputting the class that is the mode of the classes (classification) or mean prediction (regression) of the individual trees. Random forests are known for their accuracy and ability to handle large datasets with higher dimensionality.
