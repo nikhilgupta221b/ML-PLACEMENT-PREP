@@ -415,3 +415,7 @@ EDA involves analyzing data sets to summarize their main characteristics, often 
 **Techniques**:
 - **PCA**: Reduces dimensionality while retaining variance.
 - **t-SNE**: Useful for visualizing high-dimensional data in 2D.
+
+# XGBoost
+
+**Definition**: XGBoost (Extreme Gradient Boosting) is a scalable and efficient implementation of gradient boosting that uses decision trees as base learners. It builds models in a sequential manner where each new model corrects the errors of the previous ones. XGBoost is known for its high performance and speed, handling large datasets and complex models effectively. It includes advanced features like regularization to prevent overfitting, making it a popular choice in machine learning competitions and real-world applications.
