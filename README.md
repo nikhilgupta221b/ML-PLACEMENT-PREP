@@ -353,8 +353,65 @@ Feature engineering involves creating new features or modifying existing ones to
 - **Normalization**: Scales features to a range of [0, 1].
 - **Standardization**: Scales features to have a mean of 0 and a standard deviation of 1.
 
-**Example**:
-```python
-from sklearn.preprocessing import StandardScaler
-scaler = StandardScaler()
-X_scaled = scaler.fit_transform(X)
+## 2. Feature Encoding
+
+**Definition**: Converting categorical variables into numerical values.
+
+**Techniques**:
+- **One-Hot Encoding**: Creates binary columns for each category.
+- **Label Encoding**: Assigns each category a unique integer.
+
+## 3.Feature Extraction
+
+**Definition**: Creating new features from existing ones to capture more information.
+
+**Techniques**:
+- **Principal Component Analysis (PCA)**: Reduces dimensionality while retaining variance.
+- **Feature Construction**: Creating new features based on domain knowledge.
+
+## 4.Feature Selection
+
+**Definition**: Selecting a subset of features to improve model performance and reduce complexity.
+
+**Techniques**:
+- **Filter Methods**: Statistical techniques to select features (e.g., chi-squared test).
+- **Wrapper Methods**: Use a machine learning model to evaluate feature subsets (e.g., recursive feature elimination).
+- **Embedded Methods**: Feature selection during model training (e.g., LASSO regression).
+
+# Exploratory Data Analysis (EDA) Techniques in Machine Learning
+
+EDA involves analyzing data sets to summarize their main characteristics, often using visual methods.
+
+## 1. Descriptive Statistics
+
+**Definition**: Summarize the basic features of the data.
+
+**Techniques**:
+- **Measures of Central Tendency**: Mean, median.
+- **Measures of Dispersion**: Standard deviation, variance.
+
+## 2. Data Visualization
+
+**Definition**: Graphical representation of data to uncover patterns and relationships.
+
+**Techniques**:
+- **Histograms**: Show the distribution of a single variable.
+- **Box Plots**: Display the distribution and outliers of a variable.
+- **Scatter Plots**: Show relationships between two variables.
+- **Correlation Heatmaps**: Display the correlation between variables.
+
+## 3. Data Cleaning
+
+**Definition**: Identifying and handling missing values, outliers, and inconsistencies in the data.
+
+**Techniques**:
+- **Handling Missing Values**: Imputation or removal.
+- **Outlier Detection**: Methods like Z-score or IQR.
+
+## 4. Dimensionality Reduction
+
+**Definition**: Reducing the number of features to simplify the model and visualize data.
+
+**Techniques**:
+- **PCA**: Reduces dimensionality while retaining variance.
+- **t-SNE**: Useful for visualizing high-dimensional data in 2D.
