@@ -390,6 +390,18 @@ It acts as the initial hidden state of the decoder part of the model.
 ## Decoder
 The Decoder generates the output sequence by predicting the next output Yt given the hidden state ht.
 
+Projects inputs to multiple heads, computes attention, concatenates results, and applies a final linear projection.
+
+Consider a Transformer model with 8 attention heads. For a sentence like “The quick brown fox jumps over the lazy dog,” different heads might focus on:
+
+Head 1: Relationships between adjectives and nouns (e.g., “quick” with “fox”).
+Head 2: Verbs and their subjects or objects (e.g., “jumps” with “fox” and “dog”).
+Head 3: Prepositional phrases and their connections (e.g., “over” with “jumps” and “dog”).
+Head 4: Syntactic structures like noun phrases or verb phrases.
+Head 5: Long-range dependencies (e.g., how “dog” relates to the verb “jumps”).
+Head 6: Semantic relations (e.g., “lazy” with “dog”).
+Head 7: Position or order of words.
+Head 8: Contextual nuances or specific meanings.
 
 # Masking in BERT
 BERT (Bidirectional Encoder Representations from Transformers) is designed to pre-train deep bidirectional representations by jointly conditioning on both left and right context in all layers.
