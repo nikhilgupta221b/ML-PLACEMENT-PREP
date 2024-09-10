@@ -164,3 +164,25 @@ ViLBERT (Vision-and-Language BERT) is a model that extends BERT (Bidirectional E
 - **Limitations**:
   - **Taxonomy Dependency**: Relies on the structure of the lexical database.
   - **Static**: May not adapt to evolving language and meanings.
+
+
+## How ViT and BERT were Combined for Visual QnA
+
+### 1. Image Encoding using ViT:
+- **ViT** takes the input image, splits it into patches, and treats each patch as a sequence element (similar to how words are processed in text).
+- These patches are fed through multiple transformer layers, which capture relationships between different parts of the image.
+- The output of ViT is a sequence of **image embeddings** that represent the visual information of the image in a format understandable by a transformer model.
+
+### 2. Text Encoding using BERT:
+- **BERT** is used to process the question. It tokenizes the input question and passes it through transformer layers to generate a sequence of embeddings for the words in the question.
+- BERT’s output is a **contextualized representation** of the question, where each token’s embedding captures its meaning in the context of the entire question.
+
+### 3. Fusion of Vision and Textual Features:
+- The outputs from ViT (**image embeddings**) and BERT (**question embeddings**) are combined in a way that allows the model to correlate information between the image and the question.
+- Common methods for combining the two modalities include:
+  - **Concatenation**: Image embeddings and question embeddings are concatenated and then passed through additional transformer layers to allow the model to learn how to relate the two.
+  - **Cross-attention**: The model uses an attention mechanism where the image features attend to the question features, and vice versa, allowing the model to learn which parts of the image are relevant to the question.
+
+### 4. Answer Prediction:
+- After combining the image and text embeddings, the **fused representation** is passed through a series of layers (such as dense layers) that ultimately generate a prediction.
+- The output is typically a **classification layer** where the model predicts the most likely answer to the question based on the image.
