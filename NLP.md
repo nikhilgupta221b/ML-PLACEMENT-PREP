@@ -434,3 +434,74 @@ Rich Representations: By predicting masked tokens, BERT learns deep contextual r
 Transformers: Use an encoder-decoder architecture with self-attention mechanisms to process and generate sequences.
 
 BERT: Utilizes masked language modeling to pre-train on bidirectional context, enabling rich understanding of language.
+
+
+### Thompson Sampling, Upper Confidence Bound (UCB), and Epsilon-Greedy
+
+These are methods used in **multi-armed bandit problems** to balance **exploration** (trying new actions) and **exploitation** (choosing the best-known action). Here’s how each method works:
+
+---
+
+### 1. **Epsilon-Greedy**
+- **Approach**: Balances exploration and exploitation by using a probabilistic approach:
+  - With probability **ε**: Randomly explore (choose a random action).
+  - With probability **1 - ε**: Exploit (choose the action with the highest estimated reward).
+  
+- **Advantages**:
+  - Simple and easy to implement.
+  - Works well in some practical situations.
+
+- **Disadvantages**:
+  - Can waste time exploring suboptimal actions.
+  - Exploration is not well balanced as ε is constant.
+
+---
+
+### 2. **Upper Confidence Bound (UCB)**
+- **Approach**: Selects actions based on the principle of **optimism in the face of uncertainty**.
+  - Choose the action that maximizes the **upper confidence bound** of the reward estimate.
+
+- **UCB Formula**:
+  <img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/6cb7b509c92f7e6f29071645e36c47d14731f9ed" alt="UCB formula" width="200"/>
+
+  \[
+  \text{UCB}(a) = \hat{\mu}(a) + c \cdot \sqrt{\frac{\log{t}}{n(a)}}
+  \]
+  
+  - \(\hat{\mu}(a)\): Estimated reward for action \(a\).
+  - \(n(a)\): Number of times action \(a\) has been chosen.
+  - \(t\): Total number of times any action has been chosen.
+  - \(c\): Exploration parameter.
+
+- **Advantages**:
+  - Balances exploration and exploitation effectively.
+  - Provably optimal in many cases.
+
+- **Disadvantages**:
+  - Assumes deterministic rewards (can be less effective in noisy environments).
+  - More computationally intensive than Epsilon-Greedy.
+
+---
+
+### 3. **Thompson Sampling**
+- **Approach**: A **Bayesian** method that models uncertainty in the rewards using probability distributions.
+  - For each action, sample from the **posterior distribution** of the reward estimate.
+  - Choose the action with the highest sampled value.
+  - Update the distribution based on the actual reward received.
+
+- **Advantages**:
+  - Naturally balances exploration and exploitation.
+  - Efficient and handles uncertainty effectively.
+
+- **Disadvantages**:
+  - Requires Bayesian inference and probability distributions.
+  - Can be computationally intensive.
+
+---
+### Comparison of Approaches
+
+| **Strategy**         | **Exploration**                       | **Exploitation**                   | **Advantages**                                           | **Disadvantages**                                      |
+|----------------------|---------------------------------------|------------------------------------|---------------------------------------------------------|--------------------------------------------------------|
+| **Epsilon-Greedy**    | Random exploration with probability ε | Exploit best-known action with \(1 - ε\) | Simple and easy to implement                              | Can waste time on random actions                       |
+| **UCB**              | Chooses actions with high uncertainty | Exploit actions with high expected reward | Balances exploration well, provably optimal in many cases | Assumes deterministic rewards, more complex            |
+| **Thompson Sampling** | Samples from posterior distributions  | Exploit best samples from distributions | Handles uncertainty well, efficient in practice           | Requires Bayesian inference, more computational effort  |
