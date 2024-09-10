@@ -186,3 +186,43 @@ ViLBERT (Vision-and-Language BERT) is a model that extends BERT (Bidirectional E
 ### 4. Answer Prediction:
 - After combining the image and text embeddings, the **fused representation** is passed through a series of layers (such as dense layers) that ultimately generate a prediction.
 - The output is typically a **classification layer** where the model predicts the most likely answer to the question based on the image.
+
+
+## LoRA (Low-Rank Adaptation) Explanation
+
+### Overview:
+LoRA (Low-Rank Adaptation) is a fine-tuning technique designed to reduce the **computational cost** and **memory requirements** of fine-tuning large models like transformers (e.g., BERT, ViT). It achieves this by introducing **low-rank matrices** that are optimized during training while **freezing** most of the original model's parameters.
+
+---
+
+### How LoRA Works:
+1. **Freezing Model Weights**:
+   - In LoRA, the **main model weights** are frozen, meaning they are not updated during fine-tuning. These frozen weights are the pre-trained parameters from a model like BERT or ViT.
+   - Freezing helps preserve the original knowledge of the model while reducing the number of parameters that need to be optimized.
+
+2. **Introducing Low-Rank Matrices**:
+   - Instead of updating the full parameter set, LoRA introduces **low-rank matrices** to learn the specific task features. These low-rank matrices are much smaller in size compared to the full model, leading to **fewer parameters** to update.
+   - The low-rank matrices are added to the original model in a way that allows them to capture important task-specific information without the need for full re-training of the large model.
+
+### Significance of Rank:
+- The **rank** in LoRA refers to the dimensionality of the low-rank matrices introduced during fine-tuning.
+- **Higher rank** means the low-rank matrix can capture more complex relationships, but it also increases the computational cost.
+- **Lower rank** reduces the computational cost but may limit the capacity of the model to learn fine-grained details.
+
+In your project, using a **LoRA rank of 32** means that the low-rank matrices had a dimension of 32, which is typically a good trade-off between **performance** (ability to learn) and **efficiency** (low computational cost).
+
+### Advantages of LoRA:
+1. **Parameter Efficiency**:
+   - Only a small number of additional parameters are learned (the low-rank matrices), leading to significant memory savings.
+
+2. **Scalability**:
+   - LoRA allows fine-tuning of very large models (like BERT or ViT) without needing a large amount of computational resources, making it suitable for systems with limited capacity.
+
+3. **Fast Fine-Tuning**:
+   - Because only the low-rank matrices are being optimized, the training process is **faster** compared to fine-tuning the full set of parameters in the original model.
+
+### Frozen Model Weights:
+- When the model's weights are **frozen**, they are **not updated** during the training process. This helps maintain the pre-trained knowledge that the model has learned during its large-scale training on diverse data.
+- LoRA's low-rank matrices work as **additional parameters** that get updated, allowing the model to adapt to the specific task without needing to modify the original weights.
+
+By freezing most of the weights and only updating a small number of parameters (through low-rank matrices), LoRA strikes an **optimal balance** between **adaptability** and **efficiency**.
