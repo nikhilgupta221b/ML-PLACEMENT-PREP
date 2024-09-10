@@ -324,6 +324,16 @@ The reset gate determines how much of the previous hidden state should be forgot
   - Similar to LSTM, including language modeling, speech recognition, and time series forecasting.
   - Preferable when computational efficiency is important.
 
+| **Feature**               | **LSTM**                          | **GRU**                           |
+|---------------------------|------------------------------------|-----------------------------------|
+| **Number of Gates**        | 3 (Forget, Input, Output)          | 2 (Reset, Update)                 |
+| **Cell State**             | Separate cell state and hidden state | No separate cell state; combined with hidden state |
+| **Training Speed**         | Slower due to more complex architecture | Faster and more efficient         |
+| **Memory Usage**           | More memory-intensive              | Less memory-intensive             |
+| **Complexity**             | More complex                       | Simpler                           |
+| **Ability to Capture Long-Term Dependencies** | Stronger at capturing long-term dependencies | Effective but may not be as strong in complex tasks |
+
+
 ## Summary
 - **RNN**:
   - Simple and effective for short sequences.
