@@ -264,6 +264,17 @@ Recurrent Neural Network(RNN) is a type of Neural Network where the output from 
 
 - BPTT requires storing all the intermediate hidden states and computing gradients over a long sequence, which can be computationally expensive, especially for long sequences.
 
+| **Feature**               | **Normal Backpropagation**               | **Backpropagation Through Time (BPTT)**       |
+|---------------------------|------------------------------------------|-----------------------------------------------|
+| **Network Type**           | Used in feedforward networks             | Used in recurrent neural networks (RNNs)      |
+| **Sequence Handling**      | Treats each input as independent         | Handles sequential data with time dependencies|
+| **Unrolling**              | No unrolling (works on static structure) | Network is unrolled over time steps           |
+| **Error Propagation**      | Error is propagated layer by layer       | Error is propagated backward through time     |
+| **Time Dependency**        | No concept of time dependency            | Takes time dependencies into account          |
+| **Memory**                 | No memory between inputs                 | Maintains hidden state over time              |
+| **Complexity**             | Simpler, less computational overhead     | More computationally expensive due to unrolling and backpropagating through time |
+
+
 ## Long Short-Term Memory (LSTM)
 The LSTM architectures involves the memory cell which is controlled by three gates: the input gate, the forget gate, and the output gate. These gates decide what information to add to, remove from, and output from the memory cell.
 
