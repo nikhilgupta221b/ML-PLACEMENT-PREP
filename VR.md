@@ -52,6 +52,22 @@
 - **Encoder**: Converts input data into rich, contextually informed embeddings using self-attention and feed-forward layers.
 - **Decoder**: Uses these embeddings, along with target sequence information, to generate predictions, employing masked self-attention, cross-attention, and feed-forward layers.
 
+### Fixed Masking (BERT)
+- **Masking Pattern**: Fixed positions for masked words.
+- **Consistency**: Same words are masked at the same positions in each epoch.
+- **Training Focus**: Learns to predict masked words based on fixed context.
+
+### Dynamic Masking (RoBERTa)
+- **Masking Pattern**: Variable positions for masked words.
+- **Variability**: Different words are masked each time a sequence is fed through the model.
+- **Training Focus**: Provides diverse contexts for learning, improving generalization.
+
+### Benefits of Dynamic Masking
+- **Increased Variety**: Exposes the model to a broader range of masked positions.
+- **Improved Learning**: Helps the model to generalize better and avoid overfitting.
+- **Better Representation**: Leads to more nuanced and robust contextual understanding.
+
+
 # Definitions and Working of Various Vision and Transformer Models
 
 ## DeiT (Data-efficient Image Transformer)
