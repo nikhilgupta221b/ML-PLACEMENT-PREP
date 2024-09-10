@@ -126,6 +126,85 @@ where \( S \) is the dataset, \( A \) is an attribute, \( \text{Values}(A) \) ar
 ## Support Vector Machine (SVM)
 Support Vector Machine (SVM) is a supervised learning algorithm used for classification and regression tasks. It works by finding the hyperplane that best separates the classes in the feature space. SVM aims to maximize the margin between the closest points of the classes (support vectors), making it effective for high-dimensional spaces and when the number of dimensions exceeds the number of samples.
 
+# Support Vector Machine (SVM)
+
+**Support Vector Machine (SVM)** is a supervised machine learning algorithm used for classification and regression tasks, primarily known for classification. SVM aims to find the optimal boundary (hyperplane) that separates different classes in the dataset.
+
+## Key Concepts
+
+1. **Hyperplane**:
+   - The decision boundary that separates different classes.
+   - In a 2D space, it’s a line; in higher dimensions, it’s a plane.
+
+2. **Margin**:
+   - The distance between the hyperplane and the nearest data points from each class. 
+   - SVM maximizes the margin to ensure better generalization.
+
+3. **Support Vectors**:
+   - The data points closest to the hyperplane, which influence its position.
+   - These are critical to defining the decision boundary.
+
+4. **Objective**:
+   - The goal of SVM is to maximize the margin between the support vectors and the hyperplane to prevent overfitting and improve generalization.
+
+## SVM Kernels
+
+**Kernels** are functions that transform data into a higher-dimensional space to handle **non-linearly separable data**.
+
+### Common Kernel Types:
+
+1. **Linear Kernel**:
+   - Used for linearly separable data.
+   - **Equation**: 
+     \[
+     K(x_i, x_j) = x_i \cdot x_j
+     \]
+   - **Use Case**: Suitable for problems where the data is linearly separable.
+
+2. **Polynomial Kernel**:
+   - Creates polynomial combinations of features.
+   - **Equation**: 
+     \[
+     K(x_i, x_j) = (x_i \cdot x_j + c)^d
+     \]
+     where \( d \) is the degree of the polynomial and \( c \) is a constant.
+   - **Use Case**: Suitable for data with polynomial relationships.
+
+3. **Radial Basis Function (RBF) Kernel**:
+   - One of the most popular kernels.
+   - **Equation**:
+     \[
+     K(x_i, x_j) = \exp\left(-\frac{||x_i - x_j||^2}{2\sigma^2}\right)
+     \]
+     where \( \sigma \) is a parameter that controls the spread of the kernel.
+   - **Use Case**: Handles non-linearly separable data effectively and is widely used in classification tasks.
+
+4. **Sigmoid Kernel**:
+   - Similar to a neural network’s activation function.
+   - **Equation**: 
+     \[
+     K(x_i, x_j) = \tanh(\alpha (x_i \cdot x_j) + c)
+     \]
+     where \( \alpha \) and \( c \) are kernel parameters.
+   - **Use Case**: Rarely used but can model data with sigmoid-shaped decision boundaries.
+
+## Choosing a Kernel
+
+- **Linear Kernel**: Use for linearly separable data.
+- **Polynomial Kernel**: Use when relationships between features are polynomial.
+- **RBF Kernel**: Use when data is non-linearly separable (default choice).
+- **Sigmoid Kernel**: Use for sigmoid-shaped decision boundaries.
+
+## Example
+
+- **Linearly Separable Case (Linear Kernel)**:
+  - A binary classification task with two features (e.g., height and weight) where classes (e.g., male vs. female) can be separated by a straight line.
+  
+- **Non-Linearly Separable Case (RBF Kernel)**:
+  - A circular classification problem where points inside the circle belong to one class and points outside the circle to another. The RBF kernel projects data to a higher dimension where a linear boundary becomes possible.
+
+
+
 ## Neural Networks
 Neural Networks are a series of algorithms that attempt to recognize underlying relationships in a set of data through a process that mimics the way the human brain operates. They are a key technology in machine learning and artificial intelligence, particularly in deep learning.
 
