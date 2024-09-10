@@ -133,3 +133,34 @@ ViLBERT (Vision-and-Language BERT) is a model that extends BERT (Bidirectional E
 - **Architecture:** Uses separate streams for processing visual and textual inputs, which are later fused using cross-attention mechanisms.
 - **Multimodal Learning:** Trains on tasks that require understanding both visual and textual information, such as visual question answering.
 - **Key Feature:** Allows joint representation learning from images and text, enabling the model to understand and generate responses based on multimodal inputs.
+
+
+### Wu-Palmer Similarity
+
+- **Concept**: Measures semantic similarity based on shared hierarchical relationships in a lexical taxonomy (e.g., WordNet).
+- **Taxonomy**: Uses lexical databases where words are organized into synsets with hypernym (general term) and hyponym (specific term) relationships.
+- **Process**:
+  1. **Find Common Ancestor**: Identify the most specific common ancestor (least common subsumer) of the two words.
+  2. **Compute Similarity**:
+     \[
+     \text{Similarity}(w_1, w_2) = \frac{2 \cdot \text{Depth}_{LCS}}{\text{Depth}_{w_1} + \text{Depth}_{w_2} + 2 \cdot \text{Depth}_{LCS}}
+     \]
+     - \(\text{Depth}_{LCS}\): Depth of the least common subsumer.
+     - \(\text{Depth}_{w_1}\): Depth of word \(w_1\).
+     - \(\text{Depth}_{w_2}\): Depth of word \(w_2\).
+
+- **Example**: For "dog" and "cat":
+  - Common ancestor: "mammal."
+  - Assume depths: "dog" = 5, "cat" = 5, "mammal" = 3.
+  - Similarity:
+    \[
+    \text{Similarity}(\text{"dog"}, \text{"cat"}) = \frac{2 \cdot 3}{5 + 5 + 2 \cdot 3} = 0.375
+    \]
+
+- **Benefits**:
+  - **Semantics-Based**: Reflects hierarchical semantic relationships.
+  - **Intuitive**: Captures similarity based on shared ancestors.
+
+- **Limitations**:
+  - **Taxonomy Dependency**: Relies on the structure of the lexical database.
+  - **Static**: May not adapt to evolving language and meanings.
